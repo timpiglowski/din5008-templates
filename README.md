@@ -1,12 +1,13 @@
 # din5008-templates
 [![status: experimental](https://github.com/GIScience/badges/raw/master/status/experimental.svg)](https://github.com/GIScience/badges#experimental)
 
-This is referencing the envelope dimensions of DIN 680.
+A collection of DIN5008 compliant envelope templates made in LaTeX and rendered as PDF. These templates follow the envelope dimensions specified in DIN 680.
 
-A collection of DIN5008 compliant templates made in LaTeX and rendered as PDF.
+## About the project
+This project addresses the challenge of creating dimensionally accurate, DIN-compliant envelope templates. I could not find precise, reliable templates and got frustrated enough to give it a shot.
 
 ## Support
-Below you can find a table of all the format I have created a template for.
+The following table shows the current implementation status of envelope formats:
 
 Symbols:
 - ✅ existing
@@ -24,3 +25,16 @@ Symbols:
 | C4 | ❌ | ❌ | N/A |
 | B4 | ❌ | ❌ | N/A |
 | E4 | ❌ | ❌ | N/A |
+
+## Generating Previews
+To generate the PNG previews of the rendered PDF documents, this command can be used (requires image magick).
+```sh
+find ./templates -type f -name "*.pdf" -exec sh -c '
+  for pdf; do
+    rel_path=${pdf#./templates/}
+    dir_path="./examples/$(dirname "$rel_path")"
+    mkdir -p "$dir_path"
+    magick -density 150 "$pdf" "$dir_path/$(basename "${pdf%.pdf}.png")"
+  done
+' sh {} +
+```
