@@ -15,13 +15,13 @@
     },
     % Custom dimension line style
     dim line/.style={
-        latex-stealth,
+        latex-latex,
         line width=0.2mm,
         color=gray
     },
     % Style for dimension labels
     dim label/.style={
-        font=\footnotesize,
+        font=\sffamily,
         midway,
         fill=white,
         inner sep=2pt
@@ -50,6 +50,7 @@
 
 \fill[marginArea] (0,0) rectangle ++(15,70);
 \fill[marginArea] (15,0) rectangle ++(55,15);
+\fill[marginArea] (205,15) rectangle ++(15,55);
 
 \fill[codeArea] (70,0) rectangle ++(150,15);
 \node[area label] at (145,7.5) {Code Area};
