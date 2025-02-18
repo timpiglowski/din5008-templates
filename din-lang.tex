@@ -1,5 +1,5 @@
 \documentclass[tikz]{standalone}
-\usepackage{tikz}
+\usepackage{tikz,tikz-dimline}
 
 % Global settings
 \tikzset{
@@ -31,6 +31,7 @@
 \fill[senderArea] (0,70) rectangle ++(146,40);
 \node[area label] at (73,90) {Sender Information};
 
+
 \fill[postageArea] (146,70) rectangle ++(74,40);
 \node[area label] at (183,90) {Postage};
 
@@ -43,15 +44,68 @@
 \fill[readingArea] (15,15) rectangle ++(190,55);
 \node[area label] at (110,42.5) {Reading Area};
 
-% Draw all dashed lines
-\draw(0,70) -- (146,70);
-\draw(146,70) -- (146,110);
-\draw(146,70) -- (220,70);
-\draw(15,15) -- (15,70);
-\draw(70,0) -- (70,15);
-\draw(15,15) -- (70,15);
-\draw(70,15) -- (220,15);
-\draw(205,15) -- (205,70);
+%horizontal lines
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(0,70)}{(146,70)}{146 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(146,70)}{(220,70)}{74 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(0,15)}{(15,15)}{15 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(15,15)}{(70,15)}{55 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(70,15)}{(205,15)}{135 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(205,15)}{(220,15)}{15 mm}
+
+%vertical linds
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(146,70)}{(146,110)}{40 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(15,15)}{(15,70)}{55 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(205,15)}{(205,70)}{55 mm}
+
+\dimline[line style = {line width=0.2mm, color=gray},
+  extension start length=-0.3cm,
+  extension end length=-0.3cm,
+  label style={font=\footnotesize}
+]{(70,0)}{(70,15)}{15 mm}
 
 \end{tikzpicture}
 \end{document}
