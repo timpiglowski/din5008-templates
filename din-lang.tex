@@ -1,5 +1,6 @@
 \documentclass[tikz]{standalone}
-\usepackage{tikz,tikz-dimline}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
 
 % Global settings
 \tikzset{
@@ -11,6 +12,19 @@
     area label/.style={
         font=\sffamily,
         align=center
+    },
+    % Custom dimension line style
+    dim line/.style={
+        latex-stealth,
+        line width=0.2mm,
+        color=gray
+    },
+    % Style for dimension labels
+    dim label/.style={
+        font=\footnotesize,
+        midway,
+        fill=white,
+        inner sep=2pt
     }
 }
 
@@ -31,7 +45,6 @@
 \fill[senderArea] (0,70) rectangle ++(146,40);
 \node[area label] at (73,90) {Sender Information};
 
-
 \fill[postageArea] (146,70) rectangle ++(74,40);
 \node[area label] at (183,90) {Postage};
 
@@ -44,68 +57,19 @@
 \fill[readingArea] (15,15) rectangle ++(190,55);
 \node[area label] at (110,42.5) {Reading Area};
 
-%horizontal lines
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(0,70)}{(146,70)}{146 mm}
+% Horizontal dimension lines
+\draw[dim line] (0,70) -- (146,70) node[dim label] {146 mm};
+\draw[dim line] (146,70) -- (220,70) node[dim label] {74 mm};
+\draw[dim line] (0,15) -- (15,15) node[dim label] {15 mm};
+\draw[dim line] (15,15) -- (70,15) node[dim label] {55 mm};
+\draw[dim line] (70,15) -- (205,15) node[dim label] {135 mm};
+\draw[dim line] (205,15) -- (220,15) node[dim label] {15 mm};
 
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(146,70)}{(220,70)}{74 mm}
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(0,15)}{(15,15)}{15 mm}
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(15,15)}{(70,15)}{55 mm}
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(70,15)}{(205,15)}{135 mm}
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(205,15)}{(220,15)}{15 mm}
-
-%vertical linds
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(146,70)}{(146,110)}{40 mm}
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(15,15)}{(15,70)}{55 mm}
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(205,15)}{(205,70)}{55 mm}
-
-\dimline[line style = {line width=0.2mm, color=gray},
-  extension start length=-0.3cm,
-  extension end length=-0.3cm,
-  label style={font=\footnotesize}
-]{(70,0)}{(70,15)}{15 mm}
+% Vertical dimension lines
+\draw[dim line] (146,70) -- (146,110) node[dim label, rotate=90] {40 mm};
+\draw[dim line] (15,15) -- (15,70) node[dim label, rotate=90] {55 mm};
+\draw[dim line] (205,15) -- (205,70) node[dim label, rotate=90] {55 mm};
+\draw[dim line] (70,0) -- (70,15) node[dim label, rotate=90] {15 mm};
 
 \end{tikzpicture}
 \end{document}

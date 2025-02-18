@@ -1,6 +1,8 @@
 # din5008-templates
 [![status: experimental](https://github.com/GIScience/badges/raw/master/status/experimental.svg)](https://github.com/GIScience/badges#experimental)
 
+This is referencing the envelope dimensions of DIN 680.
+
 A collection of DIN5008 compliant templates made in LaTeX and rendered as PDF.
 
 ## Support
